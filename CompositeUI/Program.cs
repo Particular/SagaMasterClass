@@ -5,11 +5,14 @@
     using System.Linq;
     using System.Reflection;
     using NServiceBus;
+    using NServiceBus.Logging;
 
     class Program
     {
         static void Main()
         {
+            LogManager.Use<DefaultFactory>().Level(LogLevel.Error);
+
             var busConfiguration = new BusConfiguration();
 
             using (var bus = Bus.CreateSendOnly(busConfiguration))
@@ -78,14 +81,14 @@
             return (Command) Activator.CreateInstance(command);
         }
 
-        public abstract void Execute(CommandContext commandContext);
+        public abstract void Execute(CommandContext context);
 
         static List<Type> availableCommands;
     }
 
     class ExitCommand : Command
     {
-        public override void Execute(CommandContext commandContext)
+        public override void Execute(CommandContext context)
         {
             Console.Out.WriteLine("bye bye");
         }
@@ -93,7 +96,7 @@
 
     class NotFoundCommand : Command
     {
-        public override void Execute(CommandContext commandContext)
+        public override void Execute(CommandContext context)
         {
             Console.Out.WriteLine("Command not found");
         }

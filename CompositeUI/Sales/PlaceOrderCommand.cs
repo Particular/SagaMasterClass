@@ -6,25 +6,25 @@ namespace Sales
 
     class PlaceOrderCommand : Command
     {
-        public override void Execute(CommandContext commandContext)
+        public override void Execute(CommandContext context)
         {
             string orderId;
 
-            if (!commandContext.TryGet("CurrentOrderId", out orderId))
+            if (!context.TryGet("CurrentOrderId", out orderId))
             {
                 Console.Out.WriteLine("No order is currently active, please use `NewOrder` to start a new one");
 
                 return;
             }
 
-            commandContext.Bus.Send(new PlaceOrder
+            context.Bus.Send(new PlaceOrder
             {
                 OrderId = orderId
             });
 
             Console.Out.WriteLine($"Thank you for your order, your order confirmation should arrive shortly - {orderId}");
-            commandContext.Remove("CurrentOrderId");
-            commandContext.Status.Clear();
+            context.Remove("CurrentOrderId");
+            context.Status.Clear();
         }
     }
 }

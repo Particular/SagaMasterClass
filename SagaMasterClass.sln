@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop", "CompositeUI\Shop.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales", "Sales\Sales.csproj", "{4C8E43A6-D0A7-4D56-BF8A-14BB8376776E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales.Contracts", "Sales.Contracts\Sales.Contracts.csproj", "{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{33D085CD-D0C3-4CAE-8A83-95FA783F756D}"
+	ProjectSection(SolutionItems) = preProject
+		SetupDatabases.sql = SetupDatabases.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +28,10 @@ Global
 		{4C8E43A6-D0A7-4D56-BF8A-14BB8376776E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C8E43A6-D0A7-4D56-BF8A-14BB8376776E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C8E43A6-D0A7-4D56-BF8A-14BB8376776E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
