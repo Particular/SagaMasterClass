@@ -51,6 +51,7 @@
     </Compile>
     <Compile Include="Helpers\CommandContext.cs" />
     <Compile Include="Helpers\ReadOnlyCommandContext.cs" />
+    <Compile Include="ShoppingCart.cs" />
     <Compile Include="Sales\StartOrderCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Sales\PlaceOrderCommand.cs" />

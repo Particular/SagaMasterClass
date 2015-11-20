@@ -1,25 +1,24 @@
-﻿namespace Shop.Sales
+﻿namespace Sales
 {
     using System;
-    using System.Collections.Generic;
-    using global::Sales.Messages;
+    using Messages;
+    using Shop;
 
-    class StartOrderCommand : Command //<ShoppingCart>
+    class StartOrderCommand : Command
     {
         public override void Execute(CommandContext context)
         {
-            string currentOrderId;
+            ShoppingCart currentCart;
 
-            if (context.TryGet("CurrentOrderId", out currentOrderId))
+            if (context.TryGet(out currentCart))
             {
-                Console.Out.WriteLine($"Order {currentOrderId} is currently active, please use PlaceOrder|CancelOrder to complete it first");
+                Console.Out.WriteLine($"Order {currentCart.OrderId} is currently active, please use PlaceOrder|CancelOrder to complete it first");
 
                 return;
             }
             var orderId = Guid.NewGuid().ToString();
 
-            context.Set("CurrentOrderId", orderId);
-            context.Set("OrderItems", new List<OrderItem>());
+            context.Set(new ShoppingCart(orderId));
             context.Status.Add($"{orderId.Substring(0, 5)}");
             context.Bus.Send(new StartOrder
             {
@@ -27,9 +26,5 @@
             });
             Console.Out.WriteLine($"Initiated order {orderId}, use AddItem <sku> <quantity> to buy things");
         }
-    }
-
-    class OrderItem
-    {
     }
 }

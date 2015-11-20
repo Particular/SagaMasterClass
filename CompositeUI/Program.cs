@@ -19,7 +19,7 @@
             {
                 var commandContext = new CommandContext(bus);
 
-                Console.Out.WriteLine("Welcome to the Acme, please place your order. Type `exit` to exit");
+                Console.Out.WriteLine("Welcome to the Acme, please start a new order using `StartOrder`. Type `exit` to exit");
                 RunCommandLoop(commandContext);
             }
         }
