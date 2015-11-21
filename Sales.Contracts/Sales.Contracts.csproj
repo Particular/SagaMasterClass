@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OrderAbandoned.cs" />
+    <Compile Include="OrderCancelled.cs" />
     <Compile Include="OrderPlaced.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

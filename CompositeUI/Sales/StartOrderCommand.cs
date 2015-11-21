@@ -24,7 +24,7 @@
             {
                 OrderId = orderId
             });
-            Console.Out.WriteLine($"Initiated order {orderId}, use AddItem <sku> <quantity> to buy things");
+            Console.Out.WriteLine($"Order {orderId} created, use PlaceOrder|CancelOrder to proceed");
         }
     }
 }

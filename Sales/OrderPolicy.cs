@@ -1,6 +1,7 @@
-﻿namespace Sales.Contracts
+﻿namespace Sales
 {
     using System;
+    using Contracts;
     using Messages;
     using NServiceBus;
     using NServiceBus.Saga;
@@ -8,6 +9,7 @@
     class OrderPolicy : Saga<OrderPolicy.SagaState>,
         IAmStartedByMessages<StartOrder>,
         IHandleMessages<PlaceOrder>,
+        IHandleMessages<CancelOrder>,
         IHandleTimeouts<OrderPolicy.MarkOrderAsAbandoned>
     {
         public void Handle(StartOrder message)
@@ -18,6 +20,15 @@
             RequestTimeout<MarkOrderAsAbandoned>(TimeSpan.FromSeconds(10));
         }
 
+        public void Handle(CancelOrder message)
+        {
+            Data.State = OrderState.Cancelled;
+            Bus.Publish(new OrderCancelled
+            {
+                OrderId = Data.OrderId
+            });
+            Console.Out.WriteLine($"Order {Data.OrderId} cancelled");
+        }
 
         public void Handle(PlaceOrder message)
         {
@@ -26,6 +37,7 @@
             {
                 OrderId = Data.OrderId
             });
+            Console.Out.WriteLine($"Order {Data.OrderId} placed");
         }
 
 
@@ -43,7 +55,7 @@
 
             MarkAsComplete();
 
-            Console.Out.WriteLine($"Order {Data.OrderId} was abandoned");
+            Console.Out.WriteLine($"Order {Data.OrderId} abandoned");
         }
 
 
@@ -53,6 +65,9 @@
                 .ToSaga(s => s.OrderId);
 
             mapper.ConfigureMapping<PlaceOrder>(m => m.OrderId)
+                .ToSaga(s => s.OrderId);
+
+            mapper.ConfigureMapping<CancelOrder>(m => m.OrderId)
                 .ToSaga(s => s.OrderId);
         }
 

@@ -4,7 +4,7 @@ namespace Sales
     using Messages;
     using Shop;
 
-    class PlaceOrderCommand : Command
+    class CancelOrderCommand : Command
     {
         public override void Execute(CommandContext context)
         {
@@ -16,12 +16,12 @@ namespace Sales
                 return;
             }
 
-            context.Bus.Send(new PlaceOrder
+            context.Bus.Send(new CancelOrder
             {
                 OrderId = cart.OrderId
             });
 
-            Console.Out.WriteLine($"Thank you for your order, your order confirmation should arrive shortly - {cart.OrderId}");
+            Console.Out.WriteLine($"Order {cart.OrderId} has been canceled");
             context.Remove<ShoppingCart>();
             context.Status.Clear();
         }
