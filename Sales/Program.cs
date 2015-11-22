@@ -18,6 +18,8 @@
             busConfiguration.UsePersistence<NHibernatePersistence>()
                 .ConnectionString(@"Server=.\sqlexpress;Database=Sales;Trusted_Connection=True;");
 
+            busConfiguration.EnableInstallers();
+
             using (var bus = Bus.Create(busConfiguration))
             {
                 bus.Start();
@@ -28,8 +30,17 @@
         }
     }
 
-    class ErrorQConfig : IProvideConfiguration<MessageForwardingInCaseOfFaultConfig>
+    class CustomConfig : IProvideConfiguration<MessageForwardingInCaseOfFaultConfig>,
+        IProvideConfiguration<AuditConfig>
     {
+        AuditConfig IProvideConfiguration<AuditConfig>.GetConfiguration()
+        {
+            return new AuditConfig
+            {
+                QueueName = "audit"
+            };
+        }
+
         public MessageForwardingInCaseOfFaultConfig GetConfiguration()
         {
             return new MessageForwardingInCaseOfFaultConfig
