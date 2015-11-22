@@ -19,7 +19,6 @@
             var orderId = Guid.NewGuid().ToString();
 
             context.Set(new ShoppingCart(orderId));
-            context.Status.Add($"{orderId.Substring(0, 5)}");
             context.Bus.Send(new StartOrder
             {
                 OrderId = orderId

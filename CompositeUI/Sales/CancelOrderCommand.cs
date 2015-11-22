@@ -23,7 +23,6 @@ namespace Sales
 
             Console.Out.WriteLine($"Order {cart.OrderId} has been canceled");
             context.Remove<ShoppingCart>();
-            context.Status.Clear();
         }
     }
 }

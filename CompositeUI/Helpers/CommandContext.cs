@@ -14,12 +14,8 @@ namespace Shop
         public CommandContext(ISendOnlyBus bus)
         {
             parent = null;
-            Status = new List<string>();
             Bus = bus;
         }
-
-        public List<string> Status { get; }
-
 
         public ISendOnlyBus Bus { get; }
 

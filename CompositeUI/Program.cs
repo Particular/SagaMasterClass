@@ -1,9 +1,6 @@
 ﻿namespace Shop
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reflection;
     using NServiceBus;
     using NServiceBus.Logging;
 
@@ -24,25 +21,31 @@
             }
         }
 
-        static void RunCommandLoop(CommandContext commandContext)
+        static void RunCommandLoop(CommandContext context)
         {
             Command command;
 
             do
             {
-                GeneratePrompt(commandContext);
+                GeneratePrompt(context);
                 var requestedCommand = Console.ReadLine();
 
                 command = Command.Parse(requestedCommand);
 
 
-                command.Execute(commandContext);
+                command.Execute(context);
             } while (!(command is ExitCommand));
         }
 
-        static void GeneratePrompt(CommandContext commandContext)
+        static void GeneratePrompt(CommandContext context)
         {
-            var promptContext = string.Join(" ", commandContext.Status);
+            ShoppingCart cart;
+
+            string promptContext = null;
+            if (context.TryGet(out cart))
+            {
+                promptContext = cart.OrderId.Substring(0, 6);
+            }
 
             if (!string.IsNullOrEmpty(promptContext))
             {
@@ -50,55 +53,6 @@
             }
 
             Console.Out.Write($"Shop{promptContext}>");
-        }
-    }
-
-
-    abstract class Command
-    {
-        static Command()
-        {
-            availableCommands = Assembly.GetExecutingAssembly().GetTypes()
-                .Where(t => typeof(Command).IsAssignableFrom(t) && !t.IsAbstract)
-                .ToList();
-        }
-
-        public static Command Parse(string commandline)
-        {
-            var parts = commandline?.Split(' ');
-            if (parts == null || !parts.Any())
-            {
-                return new NotFoundCommand();
-            }
-
-            var command = availableCommands.FirstOrDefault(t => t.Name.ToLower()
-                .StartsWith(parts.First().ToLower()));
-            if (command == null)
-            {
-                return new NotFoundCommand();
-            }
-
-            return (Command) Activator.CreateInstance(command);
-        }
-
-        public abstract void Execute(CommandContext context);
-
-        static List<Type> availableCommands;
-    }
-
-    class ExitCommand : Command
-    {
-        public override void Execute(CommandContext context)
-        {
-            Console.Out.WriteLine("bye bye");
-        }
-    }
-
-    class NotFoundCommand : Command
-    {
-        public override void Execute(CommandContext context)
-        {
-            Console.Out.WriteLine("Command not found");
         }
     }
 }

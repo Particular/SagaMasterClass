@@ -23,7 +23,6 @@ namespace Sales
 
             Console.Out.WriteLine($"Thank you for your order, your order confirmation should arrive shortly - {cart.OrderId}");
             context.Remove<ShoppingCart>();
-            context.Status.Clear();
         }
     }
 }

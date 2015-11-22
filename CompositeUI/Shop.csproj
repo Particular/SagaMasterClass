@@ -52,8 +52,11 @@
     <Compile Include="..\Sales\Messages\StartOrder.cs">
       <Link>Sales\Messages\StartOrder.cs</Link>
     </Compile>
+    <Compile Include="Helpers\ExitCommand.cs" />
+    <Compile Include="Helpers\Command.cs" />
     <Compile Include="Helpers\CommandContext.cs" />
     <Compile Include="Helpers\ReadOnlyCommandContext.cs" />
+    <Compile Include="Helpers\NotFoundCommand.cs" />
     <Compile Include="Sales\CancelOrderCommand.cs" />
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="Sales\StartOrderCommand.cs" />
