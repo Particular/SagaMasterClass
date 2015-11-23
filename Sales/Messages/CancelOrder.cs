@@ -1,8 +1,6 @@
 namespace Sales.Messages
 {
-    using NServiceBus;
-
-    class CancelOrder : IMessage
+    class CancelOrder : IOrderCommand
     {
         public string OrderId { get; set; }
     }

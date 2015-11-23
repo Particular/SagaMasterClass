@@ -46,6 +46,9 @@
     <Compile Include="..\Sales\Messages\CancelOrder.cs">
       <Link>Sales\Messages\CancelOrder.cs</Link>
     </Compile>
+    <Compile Include="..\Sales\Messages\IOrderCommand.cs">
+      <Link>Sales\Messages\IOrderCommand.cs</Link>
+    </Compile>
     <Compile Include="..\Sales\Messages\PlaceOrder.cs">
       <Link>Sales\Messages\PlaceOrder.cs</Link>
     </Compile>
@@ -58,6 +61,7 @@
     <Compile Include="Helpers\ReadOnlyCommandContext.cs" />
     <Compile Include="Helpers\NotFoundCommand.cs" />
     <Compile Include="Sales\CancelOrderCommand.cs" />
+    <Compile Include="Sales\Helpers\SetConversationIdBehavior.cs" />
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="Sales\StartOrderCommand.cs" />
     <Compile Include="Program.cs" />
