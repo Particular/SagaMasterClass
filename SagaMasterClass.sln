@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shipping", "Shipping\Shippi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FedEx.Simulator", "FedEx.Simulator\FedEx.Simulator.csproj", "{14ABCADA-E2A8-4F53-98E1-B63FCBCC0BC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FedEx.Gateway", "FedEx.Gateway\FedEx.Gateway.csproj", "{2635A600-4AA0-42F5-871A-40951225BB89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{14ABCADA-E2A8-4F53-98E1-B63FCBCC0BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14ABCADA-E2A8-4F53-98E1-B63FCBCC0BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14ABCADA-E2A8-4F53-98E1-B63FCBCC0BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2635A600-4AA0-42F5-871A-40951225BB89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2635A600-4AA0-42F5-871A-40951225BB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2635A600-4AA0-42F5-871A-40951225BB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2635A600-4AA0-42F5-871A-40951225BB89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +63,6 @@ Global
 		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F} = {079ECE6B-16F9-4189-A904-F67FDD3B8AE3}
 		{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B} = {172D607B-EA00-4824-B1EC-8607C5B91602}
 		{14ABCADA-E2A8-4F53-98E1-B63FCBCC0BC9} = {172D607B-EA00-4824-B1EC-8607C5B91602}
+		{2635A600-4AA0-42F5-871A-40951225BB89} = {172D607B-EA00-4824-B1EC-8607C5B91602}
 	EndGlobalSection
 EndGlobal
