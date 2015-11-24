@@ -14,6 +14,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{33D0
 		SetupDatabases.sql = SetupDatabases.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SalesService", "SalesService", "{079ECE6B-16F9-4189-A904-F67FDD3B8AE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShippingService", "ShippingService", "{172D607B-EA00-4824-B1EC-8607C5B91602}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shipping", "Shipping\Shipping.csproj", "{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +38,17 @@ Global
 		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C8E43A6-D0A7-4D56-BF8A-14BB8376776E} = {079ECE6B-16F9-4189-A904-F67FDD3B8AE3}
+		{FC3D1E8F-B821-4EB7-9349-B2E12C45F81F} = {079ECE6B-16F9-4189-A904-F67FDD3B8AE3}
+		{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B} = {172D607B-EA00-4824-B1EC-8607C5B91602}
 	EndGlobalSection
 EndGlobal

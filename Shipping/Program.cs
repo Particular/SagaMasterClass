@@ -1,4 +1,4 @@
-﻿namespace Sales
+﻿namespace Shipping
 {
     using System;
     using NServiceBus;
@@ -16,7 +16,7 @@
             var busConfiguration = new BusConfiguration();
 
             busConfiguration.UsePersistence<NHibernatePersistence>()
-                .ConnectionString(@"Server=.\sqlexpress;Database=Sales;Trusted_Connection=True;");
+                .ConnectionString(@"Server=.\sqlexpress;Database=Shipping;Trusted_Connection=True;");
 
             busConfiguration.EnableInstallers();
 
@@ -24,13 +24,13 @@
             {
                 bus.Start();
 
-                Console.Out.WriteLine("Sales endpoint is running, please hit any key to exit");
+                Console.Out.WriteLine("Shipping endpoint is running, please hit any key to exit");
                 Console.ReadKey();
             }
         }
-        
+
         class CustomConfig : IProvideConfiguration<MessageForwardingInCaseOfFaultConfig>,
-              IProvideConfiguration<AuditConfig>
+            IProvideConfiguration<AuditConfig>
         {
             AuditConfig IProvideConfiguration<AuditConfig>.GetConfiguration()
             {
@@ -49,6 +49,4 @@
             }
         }
     }
-
-  
 }
