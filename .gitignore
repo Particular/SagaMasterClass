@@ -84,3 +84,4 @@ src/scaffolding.config
 
 # Approval tests temp file
 *.received.*
+*.msi

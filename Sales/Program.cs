@@ -16,7 +16,7 @@
             var busConfiguration = new BusConfiguration();
 
             busConfiguration.UsePersistence<NHibernatePersistence>()
-                .ConnectionString(@"Server=.\sqlexpress;Database=Sales;Trusted_Connection=True;");
+                .ConnectionString(@"Server=(localdb)\sagamasterclass;Database=Sales;Trusted_Connection=True;");
 
             busConfiguration.EnableInstallers();
 
