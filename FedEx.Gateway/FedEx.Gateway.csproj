@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B}</ProjectGuid>
+    <ProjectGuid>{2635A600-4AA0-42F5-871A-40951225BB89}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shipping</RootNamespace>
-    <AssemblyName>Shipping</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>FedEx.Gateway</RootNamespace>
+    <AssemblyName>FedEx.Gateway</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,48 +33,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NServiceBus.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
       <HintPath>..\packages\NServiceBus.5.2.10\lib\net45\NServiceBus.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NServiceBus.NHibernate, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NServiceBus.NHibernate.6.2.5\lib\net45\NServiceBus.NHibernate.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FedEx.cs" />
-    <Compile Include="Messages\FedExResponse.cs" />
-    <Compile Include="Messages\FedExTimeout.cs" />
-    <Compile Include="Messages\IShippingCommand.cs" />
-    <Compile Include="Messages\IShippingResponse.cs" />
-    <Compile Include="Messages\ShipOrder.cs" />
-    <Compile Include="Messages\ShipOrderResponse.cs" />
-    <Compile Include="Messages\ShipToFedEx.cs" />
-    <Compile Include="Messages\ShipToUps.cs" />
-    <Compile Include="Messages\UpsResponse.cs" />
+    <Compile Include="..\Shipping\Messages\FedExResponse.cs">
+      <Link>Messages\FedExResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\Shipping\Messages\IShippingCommand.cs">
+      <Link>Messages\IShippingCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Shipping\Messages\IShippingResponse.cs">
+      <Link>Messages\IShippingResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\Shipping\Messages\ShipToFedEx.cs">
+      <Link>Messages\ShipToFedEx.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ShipOrderPolicy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShipToFedExHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
