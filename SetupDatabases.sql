@@ -8,3 +8,7 @@ GO
 IF  NOT EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'Shipping')
 CREATE DATABASE [Shipping]
 GO
+
+IF  NOT EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'Billing')
+CREATE DATABASE [Billing]
+GO
