@@ -3,6 +3,7 @@
     using System;
     using System.Net.Http;
     using NServiceBus;
+    using Shipping.Messages;
 
     public class ShipToFedExHandler : IHandleMessages<ShipToFedEx>
     {
@@ -19,7 +20,10 @@
                 client.GetAsync("/shipit").Result.EnsureSuccessStatusCode();
             }
 
-            // Bus.Reply<FedExResponse>(m => { m.OrderId = message.OrderId; });
+            var guid = Guid.NewGuid().ToString();
+            var trackingNumber = guid.Substring(guid.Length - 7);
+
+            Bus.Reply(new FedExResponse() { OrderId = message.OrderId, TrackingNumber = trackingNumber });
         }
     }
 }

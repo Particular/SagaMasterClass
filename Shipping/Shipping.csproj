@@ -57,7 +57,18 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FedEx.cs" />
+    <Compile Include="Messages\FedExResponse.cs" />
+    <Compile Include="Messages\FedExTimeout.cs" />
+    <Compile Include="Messages\IShippingCommand.cs" />
+    <Compile Include="Messages\IShippingResponse.cs" />
+    <Compile Include="Messages\ShipOrder.cs" />
+    <Compile Include="Messages\ShipOrderResponse.cs" />
+    <Compile Include="Messages\ShipToFedEx.cs" />
+    <Compile Include="Messages\ShipToUps.cs" />
+    <Compile Include="Messages\UpsResponse.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ShipOrderPolicy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

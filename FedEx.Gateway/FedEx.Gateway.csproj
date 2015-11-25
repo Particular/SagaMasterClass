@@ -47,13 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Shipping\Messages\FedExResponse.cs">
+      <Link>Messages\FedExResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\Shipping\Messages\IShippingCommand.cs">
+      <Link>Messages\IShippingCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Shipping\Messages\IShippingResponse.cs">
+      <Link>Messages\IShippingResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\Shipping\Messages\ShipToFedEx.cs">
+      <Link>Messages\ShipToFedEx.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShipToFedEx.cs" />
     <Compile Include="ShipToFedExHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

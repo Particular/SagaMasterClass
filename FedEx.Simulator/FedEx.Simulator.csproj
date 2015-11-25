@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Shipping\FedEx.cs">
+      <Link>FedEx.cs</Link>
+    </Compile>
     <Compile Include="Behavior.cs" />
     <Compile Include="FedexBehavior.cs" />
     <Compile Include="FedexModule.cs" />
@@ -61,7 +64,6 @@
     <Compile Include="ThrowTimeoutException.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
