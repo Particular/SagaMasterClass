@@ -35,7 +35,7 @@ namespace Shipping
         {
             Console.WriteLine($"Handling FedExResponse orderId: {message.OrderId}, tracking number: {message.TrackingNumber}, Data.OrderId: {Data.OrderId}");
 
-            ReplyToOriginator(new ShipOrderResponse());
+            ReplyToOriginator(new ShipOrderResponse { OrderId = message.OrderId, TrackingNumber = message.TrackingNumber });
 
             MarkAsComplete();
         }
@@ -48,6 +48,8 @@ namespace Shipping
         public void Handle(UpsResponse message)
         {
             Console.WriteLine($"Handling UpsResponse orderId: {message.OrderId}, tracking number: {message.TrackingNumber}, Data.OrderId: {Data.OrderId}");
+
+            ReplyToOriginator(new ShipOrderResponse { OrderId = message.OrderId, TrackingNumber = message.TrackingNumber });
 
             MarkAsComplete();
         }
