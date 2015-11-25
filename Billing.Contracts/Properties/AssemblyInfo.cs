@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("FedEx.Simulator")]
+[assembly: AssemblyTitle("Billing.Contracts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FedEx.Simulator")]
+[assembly: AssemblyProduct("Billing.Contracts")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("14abcada-e2a8-4f53-98e1-b63fcbcc0bc9")]
+[assembly: Guid("e978479d-347b-4b3e-8ec7-b08369b5eafe")]
 
 // Version information for an assembly consists of the following four values:
 //

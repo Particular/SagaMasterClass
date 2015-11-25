@@ -1,4 +1,4 @@
-﻿namespace Sales
+﻿namespace Billing
 {
     using System;
     using NServiceBus;
@@ -16,7 +16,7 @@
             var busConfiguration = new BusConfiguration();
 
             busConfiguration.UsePersistence<NHibernatePersistence>()
-                .ConnectionString(@"Server=.\sqlexpress;Database=Sales;Trusted_Connection=True;");
+                .ConnectionString(@"Server=.\sqlexpress;Database=Billing;Trusted_Connection=True;");
 
             busConfiguration.EnableInstallers();
 
@@ -24,7 +24,7 @@
             {
                 bus.Start();
 
-                Console.Out.WriteLine("Sales endpoint is running, please hit any key to exit");
+                Console.Out.WriteLine("Billing endpoint is running, please hit any key to exit");
                 Console.ReadKey();
             }
         }

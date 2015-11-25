@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1E2909D-23D0-4E3F-8EAA-F0B2B166193B}</ProjectGuid>
+    <ProjectGuid>{6B4F07D9-20AE-4739-8E0C-3D2A5F532B1A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shipping</RootNamespace>
-    <AssemblyName>Shipping</AssemblyName>
+    <RootNamespace>Billing</RootNamespace>
+    <AssemblyName>Billing</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,30 +53,20 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FedEx.cs" />
-    <Compile Include="Messages\FedExResponse.cs" />
-    <Compile Include="Messages\FedExTimeout.cs" />
-    <Compile Include="Messages\IShippingCommand.cs" />
-    <Compile Include="Messages\IShippingResponse.cs" />
-    <Compile Include="Messages\ShipOrder.cs" />
-    <Compile Include="Messages\ShipOrderResponse.cs" />
-    <Compile Include="Messages\ShipToFedEx.cs" />
-    <Compile Include="Messages\ShipToUps.cs" />
-    <Compile Include="Messages\UpsResponse.cs" />
+    <Compile Include="OrderPlacedHandler.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ShipOrderPolicy.cs" />
-    <Compile Include="ShippingPolicy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Billing.Contracts\Billing.Contracts.csproj">
@@ -87,6 +77,9 @@
       <Project>{fc3d1e8f-b821-4eb7-9349-b2e12c45f81f}</Project>
       <Name>Sales.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
