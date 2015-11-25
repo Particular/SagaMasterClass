@@ -30,7 +30,8 @@
         }
 
         class CustomConfig : IProvideConfiguration<MessageForwardingInCaseOfFaultConfig>,
-            IProvideConfiguration<AuditConfig>
+            IProvideConfiguration<AuditConfig>,
+            IProvideConfiguration<TransportConfig>
         {
             AuditConfig IProvideConfiguration<AuditConfig>.GetConfiguration()
             {
@@ -45,6 +46,15 @@
                 return new MessageForwardingInCaseOfFaultConfig
                 {
                     ErrorQueue = "error"
+                };
+            }
+
+            TransportConfig IProvideConfiguration<TransportConfig>.GetConfiguration()
+            {
+                return new TransportConfig
+                {
+                    MaximumConcurrencyLevel = 10,
+                    MaximumMessageThroughputPerSecond = 0
                 };
             }
         }

@@ -1,5 +1,6 @@
 ﻿namespace Shipping
 {
+    using System;
     using Billing;
     using Messages;
     using NServiceBus.Saga;
@@ -33,10 +34,12 @@
 
         void InitiateShipping()
         {
+            Console.Out.WriteLine($"Initiating shipping for order {Data.OrderId}");
             Bus.Send(new ShipOrder
             {
                 OrderId = Data.OrderId
             });
+            Console.Out.WriteLine($"Initiating shipping for order {Data.OrderId}");
         }
 
 
