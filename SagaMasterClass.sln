@@ -23,11 +23,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FedEx.Simulator", "FedEx.Simulator\FedEx.Simulator.csproj", "{14ABCADA-E2A8-4F53-98E1-B63FCBCC0BC9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FedEx.Gateway", "FedEx.Gateway\FedEx.Gateway.csproj", "{2635A600-4AA0-42F5-871A-40951225BB89}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing", "Billing\Billing.csproj", "{6B4F07D9-20AE-4739-8E0C-3D2A5F532B1A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BillingService", "BillingService", "{A64A8C8A-BE4A-4F01-AD75-D215195ED3DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Billing.Contracts", "Billing.Contracts\Billing.Contracts.csproj", "{E978479D-347B-4B3E-8EC7-B08369B5EAFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ups.Gateway", "Ups.Gateway\Ups.Gateway.csproj", "{913E9C53-2AAA-4B2E-90DF-EFA3961D85B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +70,10 @@ Global
 		{E978479D-347B-4B3E-8EC7-B08369B5EAFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E978479D-347B-4B3E-8EC7-B08369B5EAFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E978479D-347B-4B3E-8EC7-B08369B5EAFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913E9C53-2AAA-4B2E-90DF-EFA3961D85B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913E9C53-2AAA-4B2E-90DF-EFA3961D85B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913E9C53-2AAA-4B2E-90DF-EFA3961D85B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913E9C53-2AAA-4B2E-90DF-EFA3961D85B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,5 +86,6 @@ Global
 		{2635A600-4AA0-42F5-871A-40951225BB89} = {172D607B-EA00-4824-B1EC-8607C5B91602}
 		{6B4F07D9-20AE-4739-8E0C-3D2A5F532B1A} = {A64A8C8A-BE4A-4F01-AD75-D215195ED3DF}
 		{E978479D-347B-4B3E-8EC7-B08369B5EAFE} = {A64A8C8A-BE4A-4F01-AD75-D215195ED3DF}
+		{913E9C53-2AAA-4B2E-90DF-EFA3961D85B3} = {172D607B-EA00-4824-B1EC-8607C5B91602}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,6 @@
 namespace Shipping.Messages
 {
-    class ShipToUps : IShippingCommand
+    public class ShipToUps : IShippingCommand
     {
         public string OrderId { get; set; }
     }
