@@ -54,8 +54,10 @@ namespace Shipping
 
         public class State : ContainSagaData
         {
-            public bool SentToFedex { get; set; }
-            public string OrderId { get; set; }
+            [Unique]
+            public virtual string OrderId { get; set; }
+
+            public virtual bool SentToFedex { get; set; }
         }
     }
 }
