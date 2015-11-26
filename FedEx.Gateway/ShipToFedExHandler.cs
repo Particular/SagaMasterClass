@@ -3,7 +3,7 @@
     using System;
     using System.Net.Http;
     using NServiceBus;
-    using Shipping.Messages;
+    using Shipping.Messages.FedEx;
 
     public class ShipToFedExHandler : IHandleMessages<ShipUsingFedEx>
     {

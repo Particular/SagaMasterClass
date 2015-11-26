@@ -1,4 +1,4 @@
-namespace Shipping.Messages
+namespace Shipping.Messages.Ups
 {
     public class ShipUsingUps : IShippingCommand
     {

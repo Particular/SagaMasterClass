@@ -1,4 +1,4 @@
-﻿namespace Shipping.Messages
+﻿namespace Shipping.Messages.FedEx
 {
     class FedExTimeout : IShippingResponse
     {

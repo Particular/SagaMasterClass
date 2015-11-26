@@ -2,7 +2,7 @@ namespace Ups.Gateway
 {
     using System;
     using NServiceBus;
-    using Shipping.Messages;
+    using Shipping.Messages.Ups;
 
     public class ShipToUpsHandler : IHandleMessages<ShipUsingUps>
     {

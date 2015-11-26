@@ -2,6 +2,8 @@ namespace Shipping
 {
     using System;
     using Messages;
+    using Messages.Ups;
+    using Messages.FedEx;
     using NServiceBus;
     using NServiceBus.Saga;
 
