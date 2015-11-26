@@ -1,6 +1,6 @@
 ﻿namespace Shipping.Messages
 {
-    public class ShipToFedEx : IShippingCommand
+    public class ShipUsingFedEx : IShippingCommand
     {
         public string OrderId { get; set; }
     }

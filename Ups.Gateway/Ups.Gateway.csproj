@@ -53,8 +53,8 @@
     <Compile Include="..\Shipping\Messages\IShippingResponse.cs">
       <Link>Messages\IShippingResponse.cs</Link>
     </Compile>
-    <Compile Include="..\Shipping\Messages\ShipToUps.cs">
-      <Link>Messages\ShipToUps.cs</Link>
+    <Compile Include="..\Shipping\Messages\ShipUsingUps.cs">
+      <Link>Messages\ShipUsingUps.cs</Link>
     </Compile>
     <Compile Include="..\Shipping\Messages\UpsResponse.cs">
       <Link>Messages\UpsResponse.cs</Link>

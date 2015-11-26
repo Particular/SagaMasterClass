@@ -4,13 +4,13 @@ namespace Ups.Gateway
     using NServiceBus;
     using Shipping.Messages;
 
-    public class ShipToUpsHandler : IHandleMessages<ShipToUps>
+    public class ShipToUpsHandler : IHandleMessages<ShipUsingUps>
     {
         public IBus Bus { get; set; }
 
-        public void Handle(ShipToUps message)
+        public void Handle(ShipUsingUps message)
         {
-            Console.WriteLine("Handling ShipToUps with id: {0}", message.OrderId);
+            Console.WriteLine("Handling ShipUsingUps with id: {0}", message.OrderId);
 
             var guid = Guid.NewGuid().ToString();
             var trackingNumber = guid.Substring(guid.Length - 7);

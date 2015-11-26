@@ -64,8 +64,8 @@
     <Compile Include="Messages\IShippingResponse.cs" />
     <Compile Include="Messages\ShipOrder.cs" />
     <Compile Include="Messages\ShipOrderResponse.cs" />
-    <Compile Include="Messages\ShipToFedEx.cs" />
-    <Compile Include="Messages\ShipToUps.cs" />
+    <Compile Include="Messages\ShipUsingFedEx.cs" />
+    <Compile Include="Messages\ShipUsingUps.cs" />
     <Compile Include="Messages\UpsResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShipOrderPolicy.cs" />

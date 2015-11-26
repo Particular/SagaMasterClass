@@ -56,8 +56,8 @@
     <Compile Include="..\Shipping\Messages\IShippingResponse.cs">
       <Link>Messages\IShippingResponse.cs</Link>
     </Compile>
-    <Compile Include="..\Shipping\Messages\ShipToFedEx.cs">
-      <Link>Messages\ShipToFedEx.cs</Link>
+    <Compile Include="..\Shipping\Messages\ShipUsingFedEx.cs">
+      <Link>Messages\ShipUsingFedEx.cs</Link>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

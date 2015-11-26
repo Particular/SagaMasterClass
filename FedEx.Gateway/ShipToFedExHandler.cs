@@ -5,11 +5,11 @@
     using NServiceBus;
     using Shipping.Messages;
 
-    public class ShipToFedExHandler : IHandleMessages<ShipToFedEx>
+    public class ShipToFedExHandler : IHandleMessages<ShipUsingFedEx>
     {
         public IBus Bus { get; set; }
 
-        public void Handle(ShipToFedEx message)
+        public void Handle(ShipUsingFedEx message)
         {
             Console.WriteLine("Handling ShipToFedex with id: {0}", message.OrderId);
 
