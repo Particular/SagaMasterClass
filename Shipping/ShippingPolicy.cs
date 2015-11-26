@@ -57,6 +57,8 @@
             [Unique]
             public virtual string OrderId { get; set; }
 
+            public virtual int Version { get; set; }
+
             public virtual bool Placed { get; set; }
             public virtual bool Billed { get; set; }
         }
