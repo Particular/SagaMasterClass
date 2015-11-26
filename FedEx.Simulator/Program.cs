@@ -1,6 +1,7 @@
 ﻿namespace FedEx.Simulator
 {
     using System;
+    using System.Diagnostics;
     using Nancy.Hosting.Self;
     using Shipping;
 
@@ -17,6 +18,8 @@
             };
 
             BehaviorHolder.Behavior = behaviors[0];
+
+            NetAclChecker.AddAddress("http://+:8888/");
 
             using (var host = new NancyHost(new Uri("http://localhost:8888")))
             {
@@ -39,6 +42,27 @@
                     }
                 } while (key != "q");
             }
+        }
+    }
+
+    public static class NetAclChecker
+    {
+        public static void AddAddress(string address)
+        {
+            AddAddress(address, Environment.UserDomainName, Environment.UserName);
+        }
+
+        public static void AddAddress(string address, string domain, string user)
+        {
+            var args = $@"http add urlacl url={address} user={domain}\{user}";
+
+            var psi = new ProcessStartInfo("netsh", args);
+            psi.Verb = "runas";
+            psi.CreateNoWindow = true;
+            psi.WindowStyle = ProcessWindowStyle.Hidden;
+            psi.UseShellExecute = true;
+
+            Process.Start(psi)?.WaitForExit();
         }
     }
 }
