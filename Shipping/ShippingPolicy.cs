@@ -4,6 +4,7 @@
     using Billing;
     using Messages;
     using NServiceBus.Saga;
+    using NServiceBus.SagaPersisters.NHibernate;
     using Sales.Contracts;
 
     public class ShippingPolicy : Saga<ShippingPolicy.State>,
@@ -52,15 +53,19 @@
                 .ToSaga(s => s.OrderId);
         }
 
-        public class State : ContainSagaData
+        public class State : IContainSagaData
         {
             [Unique]
             public virtual string OrderId { get; set; }
 
+            [RowVersion]
             public virtual int Version { get; set; }
 
             public virtual bool Placed { get; set; }
             public virtual bool Billed { get; set; }
+            public virtual Guid Id { get; set; }
+            public virtual string Originator { get; set; }
+            public virtual string OriginalMessageId { get; set; }
         }
     }
 }
