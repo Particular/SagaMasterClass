@@ -15,9 +15,10 @@
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:8888/fedex");
+                client.BaseAddress = new Uri("http://localhost:8888");
 
-                client.GetAsync("/shipit").Result.EnsureSuccessStatusCode();
+                var httpResponseMessage = client.GetAsync("/fedex/shipit").Result;
+                httpResponseMessage.EnsureSuccessStatusCode();
             }
 
             var guid = Guid.NewGuid().ToString();

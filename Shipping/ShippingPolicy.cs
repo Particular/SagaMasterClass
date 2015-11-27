@@ -36,7 +36,7 @@
         void InitiateShipping()
         {
             Console.Out.WriteLine($"Initiating shipping for order {Data.OrderId}");
-            Bus.SendLocal(new ShipOrder
+            Bus.Send(new ShipOrder
             {
                 OrderId = Data.OrderId
             });
