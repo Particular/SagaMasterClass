@@ -12,3 +12,7 @@ GO
 IF  NOT EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'Billing')
 CREATE DATABASE [Billing]
 GO
+
+IF  NOT EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'CustomerCare')
+CREATE DATABASE [CustomerCare]
+GO
