@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4C8E43A6-D0A7-4D56-BF8A-14BB8376776E}</ProjectGuid>
+    <ProjectGuid>{9445F986-B6C9-48BE-A632-E3C0F8473DEC}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sales</RootNamespace>
-    <AssemblyName>Sales</AssemblyName>
+    <RootNamespace>CustomerCare</RootNamespace>
+    <AssemblyName>CustomerCare</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,11 +38,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.4.0.1.4000\lib\net40\NHibernate.dll</HintPath>
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NServiceBus.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NServiceBus.5.2.9\lib\net45\NServiceBus.Core.dll</HintPath>
+      <HintPath>..\packages\NServiceBus.5.2.10\lib\net45\NServiceBus.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NServiceBus.NHibernate, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
@@ -61,14 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerDemotedHandler.cs" />
-    <Compile Include="CustomerMadePreferedHandler.cs" />
-    <Compile Include="Messages\CancelOrder.cs" />
-    <Compile Include="Messages\IOrderCommand.cs" />
-    <Compile Include="Messages\PlaceOrder.cs" />
-    <Compile Include="Messages\StartOrder.cs" />
-    <Compile Include="OrderPolicy.cs" />
-    <Compile Include="OrderState.cs" />
+    <Compile Include="PreferedCustomerPolicy.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

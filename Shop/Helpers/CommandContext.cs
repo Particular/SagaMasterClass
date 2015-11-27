@@ -71,6 +71,16 @@ namespace Shop
             return false;
         }
 
+        public string GetParameters()
+        {
+            return currentCommandLine;
+        }
+
+        public void SetParameters(string commandLine)
+        {
+            currentCommandLine = commandLine;
+        }
+
         /// <summary>
         /// Gets the requested extension, a new one will be created if needed.
         /// </summary>
@@ -169,6 +179,8 @@ namespace Shop
         {
             stash.Remove(key);
         }
+
+        string currentCommandLine;
 
         CommandContext parent;
 

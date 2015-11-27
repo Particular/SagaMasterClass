@@ -32,7 +32,7 @@
 
                 command = Command.Parse(requestedCommand);
 
-
+                context.SetParameters(requestedCommand);
                 command.Execute(context);
             } while (!(command is ExitCommand));
         }

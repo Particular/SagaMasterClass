@@ -16,9 +16,18 @@ namespace Sales
                 return;
             }
 
+            double orderValue = new Random().Next(100, 1000);
+            var parts = context.GetParameters().Split(' ');
+            if (parts.Length == 2)
+            {
+                orderValue = double.Parse(parts[1]);
+            }
             context.Bus.Send(new PlaceOrder
             {
-                OrderId = cart.OrderId
+                OrderId = cart.OrderId,
+                CustomerId = "12345abc",
+                OrderDate = DateTime.UtcNow,
+                OrderValue = orderValue
             });
 
             Console.Out.WriteLine($"Thank you for your order, your order confirmation should arrive shortly - {cart.OrderId}");

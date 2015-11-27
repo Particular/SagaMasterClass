@@ -35,7 +35,10 @@
             Data.State = OrderState.Placed;
             Bus.Publish(new OrderPlaced
             {
-                OrderId = Data.OrderId
+                OrderId = Data.OrderId,
+                CustomerId = message.CustomerId,
+                OrderDate = message.OrderDate,
+                OrderValue = message.OrderValue
             });
             Console.Out.WriteLine($"Order {Data.OrderId} placed");
         }
