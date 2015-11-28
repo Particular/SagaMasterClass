@@ -2,6 +2,6 @@
 {
     class FedExTimeout : IShippingResponse
     {
-        public string OrderId { get; set; }
+        public string TrackingCode { get; set; }
     }
 }

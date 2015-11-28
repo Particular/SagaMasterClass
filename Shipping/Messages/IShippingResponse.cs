@@ -4,6 +4,6 @@
 
     public interface IShippingResponse : IMessage
     {
-        string OrderId { get; set; }
+        string TrackingCode { get; set; }
     }
 }

@@ -5,13 +5,13 @@
     using NServiceBus;
     using Shipping.Messages.FedEx;
 
-    public class ShipToFedExHandler : IHandleMessages<ShipUsingFedEx>
+    public class ShipUsingFedExHandler : IHandleMessages<ShipUsingFedEx>
     {
         public IBus Bus { get; set; }
 
         public void Handle(ShipUsingFedEx message)
         {
-            Console.WriteLine("Handling ShipToFedex with id: {0}", message.OrderId);
+            Console.WriteLine($"Requesting Fedex shipment for order {message.OrderId}");
 
             using (var client = new HttpClient())
             {
@@ -21,10 +21,14 @@
                 httpResponseMessage.EnsureSuccessStatusCode();
             }
 
-            var guid = Guid.NewGuid().ToString();
-            var trackingNumber = guid.Substring(guid.Length - 7);
+            var trackingCode = "FEDEX-" + Guid.NewGuid().ToString().Substring(0, 7);
 
-            Bus.Reply(new FedExResponse() { OrderId = message.OrderId, TrackingNumber = trackingNumber });
+            Bus.Reply(new FedExResponse
+            {
+                TrackingCode = trackingCode
+            });
+
+            Console.Out.WriteLine($"Fedex shipment setup for order {message.OrderId}, tracking code: {trackingCode}");
         }
     }
 }
