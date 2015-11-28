@@ -14,7 +14,7 @@
                 new Success(),
                 new ThrowTimeoutException(),
                 new Success(),
-                new TakeLonger(),  
+                new TakeLonger()
             };
 
             BehaviorHolder.Behavior = behaviors[0];
@@ -39,6 +39,7 @@
                     if (int.TryParse(key, out index))
                     {
                         BehaviorHolder.Behavior = behaviors[index];
+                        Console.Out.WriteLine($"{BehaviorHolder.Behavior.GetType().Name} selected");
                     }
                 } while (key != "q");
             }

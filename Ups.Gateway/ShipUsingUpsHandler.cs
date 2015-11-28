@@ -16,7 +16,7 @@ namespace Ups.Gateway
 
             Bus.Reply(new UpsResponse
             {
-                TrackingNumber = trackingCode
+                TrackingCode = trackingCode
             });
             Console.Out.WriteLine($"UPS shipment setup for order {message.OrderId}, tracking code: {trackingCode}");
         }

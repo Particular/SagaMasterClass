@@ -3,13 +3,15 @@
     using System;
     using Billing;
     using Messages;
+    using NServiceBus;
     using NServiceBus.Saga;
     using NServiceBus.SagaPersisters.NHibernate;
     using Sales.Contracts;
 
     public class ShippingPolicy : Saga<ShippingPolicy.State>,
         IAmStartedByMessages<OrderPlaced>,
-        IAmStartedByMessages<OrderBilled>
+        IAmStartedByMessages<OrderBilled>,
+        IHandleMessages<ShipOrderResponse>
     {
         public void Handle(OrderBilled message)
         {
@@ -33,6 +35,11 @@
             }
         }
 
+        public void Handle(ShipOrderResponse message)
+        {
+            Console.Out.WriteLine($"Shipping is now underway for order {Data.OrderId}, tracking code: {message.TrackingCode}");
+        }
+
         void InitiateShipping()
         {
             Console.Out.WriteLine($"Initiating shipping for order {Data.OrderId}");
@@ -47,6 +54,10 @@
         protected override void ConfigureHowToFindSaga(SagaPropertyMapper<State> mapper)
         {
             mapper.ConfigureMapping<OrderPlaced>(m => m.OrderId)
+                .ToSaga(s => s.OrderId);
+
+            //we need this since auto correlation btw sagas isn't supported yet
+            mapper.ConfigureMapping<ShipOrderResponse>(m => m.OrderId)
                 .ToSaga(s => s.OrderId);
 
             mapper.ConfigureMapping<OrderBilled>(m => m.OrderId)

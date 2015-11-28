@@ -33,8 +33,8 @@ namespace Shipping
 
             ReplyToOriginator(new ShipOrderResponse
             {
-                TrackingCode = Data.OrderId,
-                TrackingNumber = message.TrackingCode
+                TrackingCode = message.TrackingCode,
+                OrderId = Data.OrderId
             });
 
             MarkAsComplete();
@@ -46,8 +46,7 @@ namespace Shipping
 
             ReplyToOriginator(new ShipOrderResponse
             {
-                TrackingCode = message.TrackingCode,
-                TrackingNumber = message.TrackingNumber
+                TrackingCode = message.TrackingCode
             });
 
             MarkAsComplete();
