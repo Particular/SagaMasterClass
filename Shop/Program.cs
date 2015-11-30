@@ -33,7 +33,14 @@
                 command = Command.Parse(requestedCommand);
 
                 context.SetParameters(requestedCommand);
-                command.Execute(context);
+                try
+                {
+                    command.Execute(context);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Unable to understand input");
+                }
             } while (!(command is ExitCommand));
         }
 
