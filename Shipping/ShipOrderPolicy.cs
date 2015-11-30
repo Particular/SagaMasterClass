@@ -11,7 +11,8 @@ namespace Shipping
         IAmStartedByMessages<ShipOrder>,
         IHandleMessages<FedExResponse>,
         IHandleMessages<UpsResponse>,
-        IHandleTimeouts<FedExTimeout>
+        IHandleTimeouts<FedExTimeout>,
+        IHandleSagaNotFound
     {
         public void Handle(ShipOrder message)
         {
@@ -50,6 +51,23 @@ namespace Shipping
             });
 
             MarkAsComplete();
+        }
+
+        public void Handle(object message)
+        {
+            var fedExResponse = message as FedExResponse;
+
+            if (fedExResponse != null)
+            {
+                Console.Out.WriteLine($"Got a late response from Fedex, tracking code: {fedExResponse.TrackingCode}");
+            }
+
+            var upsResponse = message as UpsResponse;
+
+            if (upsResponse != null)
+            {
+                Console.Out.WriteLine($"Got a response from UPS but fedex already setup, tracking code: {upsResponse.TrackingCode}");
+            }
         }
 
         public void Timeout(FedExTimeout message)

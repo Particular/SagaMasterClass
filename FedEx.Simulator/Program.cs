@@ -27,7 +27,7 @@
                 Console.WriteLine("What behavior would you like?");
                 Console.WriteLine("[1] TimeoutException");
                 Console.WriteLine("[2] Success (default)");
-                Console.WriteLine($"[3] Delay with {FedEx.TimeoutInSeconds} seconds");
+                Console.WriteLine($"[3] Delay with {FedEx.TimeoutInSeconds + 5} seconds");
                 Console.WriteLine();
                 Console.WriteLine("Please press 'q' to exit.");
 

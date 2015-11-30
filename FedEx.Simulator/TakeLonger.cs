@@ -7,7 +7,7 @@
     {
         public void Simulate()
         {
-            Thread.Sleep(FedEx.TimeoutInSeconds * 1000);
+            Thread.Sleep((FedEx.TimeoutInSeconds + 5)*1000);
         }
     }
 }
